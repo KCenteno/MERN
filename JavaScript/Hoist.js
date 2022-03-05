@@ -48,6 +48,8 @@ function eat(){
     var food = 'gone';
 }
 
+// this should work and it should console.log chicken and half-chicken. if there was another console.log food after the last var then it would console.log "gone"
+
 //====================================================================
 
 //Problem 5
@@ -61,6 +63,18 @@ var mean = function() {
 }
 console.log(food);
 
+// i dont think this would work because mean isnt a function.
+
+mean();
+function mean() {
+    food = "chicken";
+    console.log(food);
+    var food = "fish";
+    console.log(food);
+}
+
+// i would get rid of the console.logs and jsut call the functions being that it has console.logs in the functions.
+
 //====================================================================
 
 //Problem 6
@@ -71,9 +85,16 @@ function rewind() {
     genre = "rock";
     console.log(genre);
     var genre = "r&b";
-    onsole.log(genre);
+    console.log(genre);
 }
 console.log(genre);
+
+// it should run but i think th top will give you an undifend being that your console.logging befoing givving a value to genre
+
+// this is how the top should be
+
+// var genre = "disco";
+// console.log(genre);
 
 //====================================================================
 
@@ -88,6 +109,8 @@ function learn() {
     console.log(dojo);
 }
 console.log(dojo);
+
+// i beliave that it should work fine first giving you "san jose", then when the function is called it should log "seattle" and "burbank", then when you getout of the function and console.log again dojo is equal to "san jose".
 
 //====================================================================
 
