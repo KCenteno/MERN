@@ -15,16 +15,15 @@ class Ninja {
         console.log("Strength: " + this.strength)
     }
     drinkSake(){
-        console.log("Drink this it will make you feel better, Health is now: " + (this.health + 10))
+        console.log("Drink this it will make you feel better, Health is now: " + (this.health += 10))
     }
 }
 
 
-// const ninja1 = new Ninja("Hyabusa", "100", "3", "3");
-// ninja1.sayName();
-// ninja1.showStats();
-// ninja1.drinkSake();
-
+const ninja1 = new Ninja("Hyabusa", "100", "3", "3");
+ninja1.sayName();
+ninja1.showStats();
+ninja1.drinkSake();
 
 
 class Sensei extends Ninja{
