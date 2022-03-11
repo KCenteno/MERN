@@ -9,20 +9,20 @@
 //[5,4,9,2,5,3] -> [4,2,3,5,9,5], return 3
 
 const partition = (arr) => {
-    let pivi = 0
+    let pivot = 0
     for(let i = 1; i < arr.length; i++){
-        if(arr[i] < arr[pivi]){
+        if(arr[i] < arr[pivot]){
             console.log("move this value backward: " + arr[i]);
-            for(let j = i; j > pivi; j--){
+            for(let j = i; j > pivot; j--){
                 let temp = arr[j];
                 arr[j] = arr[j-1];
                 arr[j-1] = temp;
             }
-            pivi++;
+            pivot++;
             console.log(arr);
         }  
     }
-    console.log("pivot value: " + arr[pivi]);
+    console.log("pivot value: " + arr[pivot]);
     return arr;
 }
 
