@@ -41,7 +41,7 @@ const ToDoList = (props) => {
         <form onSubmit={(event) =>{
             onSubmitHandler(event);
         }}>
-            <h1>To Do List!!</h1>
+            <h1>{props.text}</h1>
         <input 
         onChange={(event) => {
             setHaveToDo(event.target.value)
