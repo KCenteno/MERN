@@ -18,10 +18,14 @@ const ToDoList = (props) => {
     };
 
     const deleteToDoHandle = (item) => {
-        const filteredToDos = toDos.filter((todo, i) => {
-            return i != item
-        });
-        setToDos(filteredToDos);
+        // const filteredToDos = toDos.filter((todo, i) => {
+        //     return i != item
+        // });
+        // setToDos(filteredToDos);
+
+        const copyState = [...toDos];
+        copyState.splice(item, 1);
+        setToDos(copyState);
     };
 
     const checkChangeHandle = (item) => {
