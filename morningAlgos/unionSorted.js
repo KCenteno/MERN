@@ -36,10 +36,29 @@ console.log(unionSorted([2,4,7,9,10,13,17,22],[2,3,5,7,9,10]));
 console.log(unionSorted([1,2,2,2,7],[2,2,6,6,7]));
 console.log(unionSorted([1,5,9],[2,6,10,15,24,36]));
 
+// const union = ( xArr, yArr ) => {
+//     const [ xLength, yLength ] = [ xArr.length, yArr.length ]
+//     let [ i, j ] = [ 0, 0 ]
+//     const unionArr = []
 
-// console.log(unionSorted([2,4,7,9,10],[2,3,5,7,9,10]));
-// console.log(unionSorted([1,2,2,2,7],[2,2,6,6,7]));
-// console.log(unionSorted([1,5,9],[2,6,10]));
+//     while ( i < xLength && j < yLength ) {
+//         if ( xArr[ i ] < yArr[ j ] ) unionArr.push( xArr[ i ] ), i++
+//         else if ( yArr[ j ] < xArr[ i ] ) unionArr.push( yArr[ j ] ), j++
+//         else unionArr.push( yArr[ j ] ), i++, j++
+//     }
+
+//     while ( i < xLength ) unionArr.push( xArr[ i ] ), i++
+//     while ( j < yLength ) unionArr.push( yArr[ j ] ), j++
+
+//     console.log( "Unionized Array:", unionArr )
+//     return unionArr
+// }
+
+// const arr3 = [ 5, 6, 8, 8, 9, 12 ]
+// const arr4 = [ 1, 2, 3, 4, 5, 8, 8, 8 ]
+
+// union( arr3, arr4 )
+
 
 //return a new unsorted union multiset of two arrays
 //essentially same as yesterday but your input is unsorted
