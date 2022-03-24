@@ -14,7 +14,7 @@ const deleteOne = (req,res) => {
 
 const findAll = (req,res) => {
     console.log(req.body)
-        Author.find({})
+        Author.find().sort({name:1})
         .then(results => res.json(results))
         .catch(err => res.status(400).json({message: "that didnt quite work", err}))
     }
