@@ -12,7 +12,7 @@ const Form = (props) => {
     const [products, setProducts] = useState([]);
     const history = useHistory();
     const [error, setError] = useState({});
-
+    const [update, setUpdate] = useState(false);
 
     useEffect(()=>{
         axios.get("http://localhost:8000/api/products")
@@ -22,7 +22,7 @@ const Form = (props) => {
             })
             .catch(err=>
                 console.log(err.response))
-    },[products])
+    },[update])
 
     const onChangeHandler = (event) => {
         setForm({
@@ -37,6 +37,12 @@ const Form = (props) => {
         axios.post("http://localhost:8000/api/products", form)
         .then(res=>{
             console.log(res);
+            setUpdate(!update)
+            setForm({
+                title: "",
+                price: "",
+                description: ""
+            })
             history.push("/");
         })
         .catch(err=>{
@@ -45,30 +51,29 @@ const Form = (props) => {
     }
 
 
-
     return(
         <div>
             <h1>Product Manager</h1>
             <form className="w-75 mx-auto border-bottom" onSubmit={onSubmitHandler}>
             <div className="form-group">
                     <label htmlFor="title">Title</label>
-                    <input onChange={onChangeHandler} type="text" name="title" className="form-control" />
+                    <input onChange={onChangeHandler} type="text" value={form.title} name="title" className="form-control" />
                     <span className="alert-danger">{error.title && error.title.message}</span>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="price">Price</label>
-                    <input onChange={onChangeHandler} type="number" name="price" className="form-control" />
-                    <span className="alert-danger">{error.title && error.company.message}</span>
+                    <input onChange={onChangeHandler} type="number" value={form.price} name="price" className="form-control" />
+                    <span className="alert-danger">{error.price && error.price.message}</span>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="description">Description</label>
-                    <input onChange={onChangeHandler} type="text" name="description" className="form-control" />
-                    <span className="alert-danger">{error.title && error.company.message}</span>
+                    <input onChange={onChangeHandler} type="text" value={form.description} name="description" className="form-control" />
+                    <span className="alert-danger">{error.description && error.description.message}</span>
                 </div>
 
-                <input type="submit" className="btn btn-success btn-lg d-block mx-auto my-3" value="Create" />
+                <input type="submit" className="btn btn-success btn-lg d-block mx-auto my-3" value="Create"/>
             </form>
             <h1>All Products:</h1>
             <table className="w-75 mx-auto">

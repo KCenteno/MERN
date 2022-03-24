@@ -4,8 +4,8 @@ import { useHistory, Link, useParams } from "react-router-dom";
 
 const SingleProduct = (props) => {
     const [product, setProduct] = useState({});
-    const {_id} = useParams();
-    // const history = useHistory();
+    const { _id } = useParams();
+    const history = useHistory();
 
     useEffect(()=> {
         axios.get("http://localhost:8000/api/products/" + _id)
@@ -18,6 +18,16 @@ const SingleProduct = (props) => {
         })
 }, [_id])
 
+const onDeleteHandler = () =>{
+    axios.delete("http://localhost:8000/api/products/" + _id)
+        .then(res=>{
+            console.log(res);
+            history.push(`/`);
+        })
+        .catch(err=>
+            console.log(err.response))
+}
+
 
     return(
         <div className='w-75 mx-auto p-5'>
@@ -25,9 +35,7 @@ const SingleProduct = (props) => {
             <h2>Price: ${product.price}</h2>
             <h2>Description: {product.description}</h2>
 
-            {/* <Link to={`/products/${_id}/edit`}>Edit</Link> */}
-            {/* <button onClick={onDeleteHandler}>Delete</button> */}
-            <Link to={`/`}>Back</Link>
+            <Link to={`/`}>Back</Link> | <Link to={`/products/${_id}/update`}>Edit</Link> | <a href="/" onClick={onDeleteHandler}>Delete</a>
         </div>
     )
 }
