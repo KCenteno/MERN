@@ -8,6 +8,7 @@ const ProductSchema = new mongoose.Schema({
     },
     price: {
         type: Number,
+        required: [true, "Needs to cost something!"],
         min: [3, "Price has to be more then $3"]
     },
     description: {

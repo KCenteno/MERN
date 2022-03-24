@@ -26,7 +26,7 @@ const createAuthor = (req,res) => {
     }
 
 const updateOne = (req,res) => {
-        Author.updateOne({_id: req.params._id}, req.body)
+        Author.updateOne({_id: req.params._id}, req.body, {runValidators:true})
             .then(results => res.json(results))
             .catch(err => res.status(400).json({message: "that didnt quite work", err}))
     }
