@@ -18,10 +18,17 @@ const One = (props) => {
 }, [_id])
 
     return(
-        <div className='w-75 mx-auto p-5'>
-            <h1>{authors.name}</h1>
-            <Link to={`/`} className="btn btn-info btn-lg mt-3">Back</Link>
-        </div>
+        <>
+            {
+                authors?
+                    <div className='w-75 mx-auto p-5'>
+                        <h1>{authors.name}</h1>
+                        <Link to={`/`} className="btn btn-info btn-lg mt-3">Back</Link>
+                    </div>:
+                    <h1>We're sorry, but we could not find the author you are looking for. Would you like to add this author to our database?<br /><Link to="/Add" className='btn btn-success'>Add an author</Link></h1>
+                    
+            }
+        </>
     )
 }
 
