@@ -1,4 +1,4 @@
-const { findAll, findOne, createAuthor, deleteOne, updateOne} = require("../controllers/author.controller")
+const { findAll, findOne, createAuthor, deleteOne, updateOne } = require("../controllers/author.controller")
 
 module.exports = app => {
     app.route("/api/authors").get(findAll).post(createAuthor)
